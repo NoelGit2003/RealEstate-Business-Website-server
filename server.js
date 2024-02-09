@@ -1,23 +1,6 @@
 // Import the express module
 const express = require('express');
-
-
-// Using ES6 imports
-const mongoose = require('mongoose');
-
-mongoose.connect('mongodb://127.0.0.1:27017/RealEstate', { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Connected!'));
-
-const Schema = mongoose.Schema;
-const BlogPost = new Schema({
-  author: String,
-  title: String,
-  body: String,
-  date: Date
-});
-
-const myReviews = mongoose.model("reviews", BlogPost);
-
+const {myReviews} = require('./DB/conn')
 
 
 
@@ -60,7 +43,7 @@ app.get('/reviews', async (req, res) => {
 });
 
 // Specify the port to listen on
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 // Start the server
 app.listen(PORT, () => {

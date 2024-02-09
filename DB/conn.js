@@ -1,15 +1,10 @@
 // Using ES6 imports
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
+const {BlogPost} = require('./Schema');
 
-mongoose.connect('mongodb://127.0.0.1:27017/RealEstate')
+mongoose.connect('mongodb://127.0.0.1:27017/RealEstate', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected!'));
 
-  const Schema = mongoose.Schema;  
-  export const BlogPost = new Schema({
-    author: String,
-    title: String,
-    body: String,
-    date: Date
-  });
 
-export const myReviews = mongoose.model("Reviews",BlogPost);
+const myReviews = mongoose.model("reviews", BlogPost);
+module.exports = {myReviews};
