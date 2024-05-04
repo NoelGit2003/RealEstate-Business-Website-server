@@ -13,7 +13,7 @@ app.get('/getReviews', async (req, res) => {
   try {
     let reviews = await myReviews.find();
 
-    console.log(reviews);
+    // console.log(reviews);
 
     if (!reviews) {
       return res.status(404).send('No reviews found.');
@@ -63,8 +63,8 @@ app.get('/savereviews', async (req, res) => {
   }
 })
 
-const PORT = process.env.BASE_URL || 7000;
+const PORT = process.env.BASE_URL || 7000
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`)
+  console.log(`Server running at ${PORT}`)
 });
