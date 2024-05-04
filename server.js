@@ -63,7 +63,7 @@ app.get('/savereviews', async (req, res) => {
   }
 })
 
-const PORT = process.env.BASE_URL;
+const PORT = process.env.BASE_URL || 7000;
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`)
