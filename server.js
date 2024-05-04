@@ -2,6 +2,7 @@
 const express = require('express');
 const { myReviews } = require('./DB/conn')
 var cors = require('cors')
+import BASE_URL from './env'
 // const { data } = require('./DB/data')
 
 
@@ -86,7 +87,7 @@ app.get('/savereviews', async (req, res) => {
 })
 
 // Specify the port to listen on
-const PORT = 7000;
+const PORT = BASE_URL;
 
 // Start the server
 app.listen(PORT, () => {
