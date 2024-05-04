@@ -7,7 +7,7 @@ dotenv.config();
 const URL = process.env.Mongo_URL
 
 mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Connected to MongoDB!'))
+  .then(() => console.log(`Connected to MongoDB! ${URL}`))
   .catch((error) => console.error('Connection error:', error));
 
 

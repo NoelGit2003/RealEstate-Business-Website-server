@@ -30,9 +30,6 @@ app.get('/getReviews', async (req, res) => {
 
 app.get('/savereviews', async (req, res) => {
   try {
-
-    // Import the mongoose connection and the Review model
-
     const data = [
       { author: 'Peter', title: 'Lowstreet 4', body: 'Here is a sample review', date: new Date() },
       { author: 'John', title: 'Highway 71', body: 'Here is a sample review', date: new Date() },
@@ -62,6 +59,7 @@ app.get('/savereviews', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 })
+
 
 const PORT = process.env.BASE_URL || 7000
 
