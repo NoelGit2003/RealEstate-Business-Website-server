@@ -1,47 +1,24 @@
-// Import the express module
 const express = require('express');
 const { myReviews } = require('./DB/conn')
 var cors = require('cors')
-import BASE_URL from './env'
-// const { data } = require('./DB/data')
+import dotenv from 'dotenv';
 
+dotenv.config();
 
-// Create an Express application
 const app = express();
 app.use(cors());
-
-// const router = express.Router();
-
-// // app.use('/api', router);
-
-// router.get('/reviews', async (req, res) => {
-//   try {
-//     let reviews = await myReviews.find();
-//     if (!reviews || reviews.length === 0) {
-//       return res.status(404).send('No reviews found.');
-//     }
-//     res.json(reviews);
-//   } catch (error) {
-//     console.error('Error fetching reviews:', error);
-//     res.status(500).json({ error: 'Internal Server Error' });
-//   }
-// });
 
 
 app.get('/getReviews', async (req, res) => {
   try {
-    // Fetch reviews from MongoDB
-    // await data.save();
     let reviews = await myReviews.find();
 
     console.log(reviews);
 
-    //If there are no reviews, you may handle this case accordingly
     if (!reviews) {
       return res.status(404).send('No reviews found.');
     }
 
-    // Send the reviews as a response
     res.json(reviews);
 
     // res.send(reviews);
@@ -86,10 +63,8 @@ app.get('/savereviews', async (req, res) => {
   }
 })
 
-// Specify the port to listen on
-const PORT = BASE_URL;
+const PORT = process.env.BASE_URL;
 
-// Start the server
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
+  console.log(`Server running at ${PORT}/`);
 });
