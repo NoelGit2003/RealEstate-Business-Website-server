@@ -1,8 +1,13 @@
 // Using ES6 imports
 const mongoose = require('mongoose');
 const { BlogPost } = require('./Schema');
+const dotenv = require('dotenv');
 
-mongoose.connect('mongodb://127.0.0.1:27017/RealEstate')
+dotenv.config();
+
+const URL = process.env.Mongo_URL
+
+mongoose.connect(`${URL}/RealEstate`)
   .then(() => console.log('Connected!'));
 
 
