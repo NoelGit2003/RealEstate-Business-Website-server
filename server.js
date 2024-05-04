@@ -1,7 +1,7 @@
 const express = require('express');
-const { myReviews } = require('./DB/conn')
-var cors = require('cors')
-import dotenv from 'dotenv';
+const cors = require('cors');
+const dotenv = require('dotenv');
+const { myReviews } = require('./DB/conn');
 
 dotenv.config();
 
@@ -66,5 +66,5 @@ app.get('/savereviews', async (req, res) => {
 const PORT = process.env.BASE_URL;
 
 app.listen(PORT, () => {
-  console.log(`Server running at ${PORT}/`);
+  console.log(`Server running at http://localhost:${PORT}`)
 });
