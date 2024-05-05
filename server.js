@@ -20,7 +20,7 @@ app.get('/getReviews', async (req, res) => {
     }
 
     res.json(reviews);
-
+    console.log(reviews);
     // res.send(reviews);
   } catch (error) {
     console.error('Error fetching reviews:', error);
@@ -51,8 +51,7 @@ app.get('/savereviews', async (req, res) => {
     const result = await myReviews.insertMany(data);
     console.log(result);
     console.log('Reviews added successfully');
-    res.status(201).json({ message: 'data saved successfuly' });
-
+    res.status(201).json({ message: 'data saved successfuly' })
 
   } catch (error) {
     console.error('Error fetching ', error);
